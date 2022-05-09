@@ -1,0 +1,79 @@
+   VOlumes topic
+
+[root@ip-172-31-16-11 ec2-user]# history
+    1  yum update -y
+    2  yum install docker -y
+    3  which docker
+    4  docker -v
+    5  serivce docker status
+    6  service docker status
+    7  service docker start
+    8  service docker status
+    9  docker pull ubuntu
+   10  docker images
+   11  docker run -it --name container1 ubuntu
+   12  docker ps
+   13  docker ps -a
+  
+   14  docker images
+   15  docker ps -a
+   16  docker start ab5d0d7c8a1b
+   17  docker attach container1
+   18  docker diff contanier1
+   19  docker diff container1
+   20  docker commit container1 newimage
+   21  docker images
+   22  docker run -it --name newcontainer newimage /bin/bash
+   23  docker diff newcontainer
+
+Creat Volume through vi Dockerfile
+
+   24  vi Dockerfile 
+
+ FROM ubuntu
+VOLUME [" /MYvolume1"]
+
+
+
+   25  docker build -t myimage .
+   26  docker images
+   27  docker run -it --name con1 myimage /bin/bash
+   28  docker run -it --name con2 --privileged=true --volumes-from con1 ubuntu /bin/bash
+   29  docker ps -a
+   30  docker start con1
+   31  docker attach con1
+   32  docker start con2
+   33  docker attach con2
+   34  docker run -it --name con3 --privileged=true --volumes-from con2 ubuntu /bin/bash
+   35  docker start con1
+   36  docker attach con1
+   37  history
+
+
+
+
+
+
+Creating volume  through commands
+
+
+
+
+   38  docker run -it --name con4 -v /volume2 ubuntu /bin/bash
+   39  docker run -it --name con5 --privileged=ture --volumes-from con4 ubuntu /bin/bash
+   40  docker run -it --name con5 --privileged=ture --volumes-from con4 ubuntu /bin/bash
+   41  docker ps -a
+   42  docker start con4
+   43  docker ps -a
+   44  docker ps
+   45  docker run -it --name con5 --privileged=ture --volumes-from con4 ubuntu /bin/bash
+   46  docker run -it --name con5 --privileged=true --volumes-from con4 ubuntu /bin/bash
+
+
+
+completed total volumes chapter 
+
+Tommrow will contious 
+
+
+
