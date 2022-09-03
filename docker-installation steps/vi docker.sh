@@ -9,3 +9,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 
 to run this file use sh docker.sh
+
+
+to run a sonarqube container
+docker run -d -p 9000:9000 sonarqube:lts
